@@ -14,7 +14,7 @@ public class DBConnection {
 
     private String username= "your_username";
 
-    private String password;
+    private String password= "your_password";
 
     // On utilise l'annotation @Bean pour indiquer à Spring que cette méthode doit être utilisée pour créer un bean.
     // Le bean est ensuite géré par le conteneur Spring et peut être injecté dans d'autres parties de l'application.
