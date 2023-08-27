@@ -6,6 +6,7 @@ CREATE TABLE utilisateur(
     id_utilisateur SERIAL PRIMARY KEY,
     nom VARCHAR(200),
     prenom VARCHAR(200) NOT NULL,
+    genre CHAR(1) CHECK (genre IN ('M', 'F')),
     email VARCHAR(100) NOT NULL,
     telephone VARCHAR(20) NOT NULL,
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
