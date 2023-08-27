@@ -10,13 +10,10 @@ import java.sql.*;
 public class DBConnection {
     // On utilise l'annotation @Value pour injecter la valeur d'une propriété de configuration
     // dans les champs correspondants. Les valeurs sont définies dans le fichier application.properties de Spring.
-    @Value("${PG_URL}")
-    private String url;
+    private String url= "jdbc:postgresql://localhost/your_database";
 
-    @Value("${PG_USERNAME}")
-    private String username;
+    private String username= "your_username";
 
-    @Value("${PG_PASSWORD}")
     private String password;
 
     // On utilise l'annotation @Bean pour indiquer à Spring que cette méthode doit être utilisée pour créer un bean.
