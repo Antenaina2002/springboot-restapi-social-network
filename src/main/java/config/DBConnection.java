@@ -19,9 +19,25 @@ public class DBConnection {
     // On utilise l'annotation @Bean pour indiquer à Spring que cette méthode doit être utilisée pour créer un bean.
     // Le bean est ensuite géré par le conteneur Spring et peut être injecté dans d'autres parties de l'application.
     @Bean
-    public Connection getConnection() throws SQLException{
-        // On utilise DriverManager pour établir une connexion à la base de données.
-        // Les paramètres de connexion sont récupérés à partir des champs précédemment définis.
-        return DriverManager.getConnection(url,username,password);
+    public Connection getConnection() {
+        Connection connection = null;
+        try {
+            // On utilise DriverManager pour établir une connexion à la base de données.
+            // Les paramètres de connexion sont récupérés à partir des champs précédemment définis.
+            connection = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            // Si une exception SQLException est levée, on vérifie le message d'erreur pour déterminer la cause de l'erreur.
+            if (e.getMessage().contains("password authentication failed")) {
+                // Si le message d'erreur contient "password authentication failed", on affiche "Mot de passe incorrect !".
+                System.out.println("Mot de passe incorrect !");
+            } else if (e.getMessage().contains("database does not exist")) {
+                // Si le message d'erreur contient "database does not exist", on affiche "Base de données introuvable !".
+                System.out.println("Base de données introuvable !");
+            } else {
+                // Sinon, on affiche le message d'erreur générique.
+                System.out.println("Erreur lors de la connexion à la base de données : " + e.getMessage());
+            }
+        }
+        return connection;
     }
 }
