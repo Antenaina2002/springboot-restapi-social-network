@@ -12,6 +12,17 @@ CREATE TABLE utilisateur(
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE messages (
+    id_message SERIAL primary key,
+    envoyeur_id INT,
+    receveur_id INT,
+    message_text TEXT,
+    message_date TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (sender_id) REFERENCES users(id),
+    FOREIGN KEY (receiver_id) REFERENCES users(id)
+);
+
+
 CREATE TABLE publication(
     id_publication SERIAL PRIMARY KEY,
     contenu TEXT
