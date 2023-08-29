@@ -72,7 +72,7 @@ public class MessageRepository {
     }
 
     // Met à jour les messages comme vus pour les deux utilisateurs spécifiés
-    public void updateMessages(int envoyeurId, int receveurId) throws SQLException {
+    public void mettreAJourMessages(int envoyeurId, int receveurId) throws SQLException {
         // Requête SQL pour mettre à jour les messages comme vus
         String sql = """
                 UPDATE messages

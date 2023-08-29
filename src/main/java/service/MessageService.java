@@ -38,7 +38,7 @@ public class MessageService {
     // Marque tous les messages entre deux utilisateurs comme lus
     public void marquerMessagesCommeLus(int envoyeurId, int receveurId) {
         try {
-            messageRepository.updateMessages(envoyeurId, receveurId);
+            messageRepository.mettreAJourMessages(envoyeurId, receveurId);
         } catch (SQLException e) {
             System.out.println("Une erreur s'est produite lors de la mise à jour des messages : " + e.getMessage());
         }
