@@ -46,21 +46,6 @@ public class MessageController {
         }
     }
 
-    // Marquer les messages comme lus entre deux utilisateurs
-    @PutMapping("/seen")
-    public ResponseEntity<Void> changeSeenDatetime(@RequestParam int idSender, @RequestParam int idReceiver) {
-        try {
-            // Appelle le service pour marquer les messages comme lus
-            messageService.marquerMessagesCommeLus(idSender, idReceiver);
-            // Retourne une réponse avec le code de statut 204 (NO_CONTENT)
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            // En cas d'erreur, logue l'erreur et retourne une réponse avec le code de statut 500 (INTERNAL_SERVER_ERROR)
-            System.err.println("Erreur lors de la mise à jour des messages lus : " + e.getMessage());
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     // Supprimer un message par son ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteMessage(@PathVariable int id) {

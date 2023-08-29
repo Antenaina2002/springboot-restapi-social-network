@@ -1,0 +1,410 @@
+openapi: 3.0.0
+info:
+  title: Social Network specification
+  description: Spécification de l'API pour gérer les utilisateurs, les publications, les postes, les commentaires et les messages.
+  version: 1.0.0
+servers:
+  - url: "http://STD22073.com"
+paths:
+  /utilisateur:
+    get:
+      tags:
+        - Utilisateur
+      summary: Récupérer tous les utilisateurs
+      responses:
+        '200':
+          description: Succès
+
+    post:
+      tags:
+        - Utilisateur
+      summary: Ajouter un nouvel utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utilisateur'
+      responses:
+        '201':
+          description: Créé avec succès
+
+  /utilisateur/{id}:
+    get:
+      tags:
+        - Utilisateur
+      summary: Récupérer un utilisateur par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Ressource non trouvée
+
+    put:
+      tags:
+        - Utilisateur
+      summary: Mettre à jour un utilisateur par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utilisateur'
+      responses:
+        '200':
+          description: Mise à jour réussie
+        '404':
+          description: Ressource non trouvée
+
+    delete:
+      tags:
+        - Utilisateur
+      summary: Supprimer un utilisateur par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Supprimé avec succès
+        '404':
+          description: Ressource non trouvée
+          
+  /publication:
+    get:
+      tags:
+        - Publication
+      summary: Récupérer toutes les publications
+      responses:
+        '200':
+          description: Succès
+
+    post:
+      tags:
+        - Publication
+      summary: Créer une nouvelle publication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Publication'
+      responses:
+        '201':
+          description: Créé avec succès
+
+  /publication/{id}:
+    get:
+      tags:
+        - Publication
+      summary: Récupérer une publication par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Ressource non trouvée
+
+    put:
+      tags:
+        - Publication
+      summary: Mettre à jour une publication par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Publication'
+      responses:
+        '200':
+          description: Mise à jour réussie
+        '404':
+          description: Ressource non trouvée
+
+    delete:
+      tags:
+        - Publication
+      summary: Supprimer une publication par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Supprimé avec succès
+        '404':
+          description: Ressource non trouvée
+
+  /poste:
+    get:
+      tags:
+        - Poste
+      summary: Récupérer tous les postes
+      responses:
+        '200':
+          description: Succès
+    post:
+      tags:
+        - Poste
+      summary: Créer un nouveau poste
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Poste'
+      responses:
+        '201':
+          description: Créé avec succès
+  /poste/{id}:
+    get:
+      tags:
+        - Poste
+      summary: Récupérer un poste par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Ressource non trouvée
+
+    put:
+      tags:
+        - Poste
+      summary: Mettre à jour un poste par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Poste'
+      responses:
+        '200':
+          description: Mise à jour réussie
+        '404':
+          description: Ressource non trouvée
+
+    delete:
+      tags:
+        - Poste
+      summary: Supprimer un poste par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Supprimé avec succès
+        '404':
+          description: Ressource non trouvée
+
+  /commentaire:
+    get:
+      tags:
+        - Commentaire
+      summary: Récupérer tous les commentaires
+      responses:
+        '200':
+          description: Succès
+
+    post:
+      tags:
+        - Commentaire
+      summary: Créer un nouveau commentaire
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Commentaire'
+      responses:
+        '201':
+          description: Créé avec succès
+
+  /commentaire/{id}:
+    get:
+      tags:
+        - Commentaire
+      summary: Récupérer un commentaire par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succès
+        '404':
+          description: Ressource non trouvée
+
+    put:
+      tags:
+        - Commentaire
+      summary: Mettre à jour un commentaire par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Commentaire'
+      responses:
+        '200':
+          description: Mise à jour réussie
+        '404':
+          description: Ressource non trouvée
+
+    delete:
+      tags:
+        - Commentaire
+      summary: Supprimer un commentaire par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Supprimé avec succès
+        '404':
+          description: Ressource non trouvée
+
+  /message:
+    get:
+      tags:
+        - Message
+      summary: Récupérer les messages entre deux utilisateurs
+      parameters:
+        - name: id_envoyeur
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: id_receveur
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succès
+          
+    post:
+      summary: Envoyer un nouveau message
+      tags:
+        - Message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '201':
+          description: Créé avec succès
+
+  /message/{id}:
+    delete:
+      tags:
+        - Message
+      summary: Supprimer un message par ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Supprimé avec succès
+        '404':
+          description: Ressource non trouvée
+          
+components:
+  schemas:
+    Utilisateur:
+      type: object
+      properties:
+        id:
+          type: integer
+        nom:
+          type: string
+
+    Publication:
+      type: object
+      properties:
+        id:
+          type: integer
+        titre:
+          type: string
+
+    Poste:
+      type: object
+      properties:
+        id:
+          type: integer
+        titre:
+          type: string
+
+    Commentaire:
+      type: object
+      properties:
+        id:
+          type: integer
+        contenu:
+          type: string
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        texte:
+          type: string
