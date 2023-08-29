@@ -72,7 +72,7 @@ public class MessageRepository {
     }
 
     // Met à jour les messages comme vus pour les deux utilisateurs spécifiés
-    public void updateMessagesVus(int envoyeurId, int receveurId) throws SQLException {
+    public void updateMessages(int envoyeurId, int receveurId) throws SQLException {
         // Requête SQL pour mettre à jour les messages comme vus
         String sql = """
                 UPDATE messages
@@ -92,7 +92,7 @@ public class MessageRepository {
     }
 
     // Supprime les messages associés à un utilisateur spécifique
-    public void supprimerMessagesPourUtilisateur(int idUtilisateur) throws SQLException {
+    public void suppressionMessage(int idUtilisateur) throws SQLException {
         // Requête SQL pour supprimer les messages associés à un utilisateur
         String sql = "DELETE FROM messages WHERE envoyeur_id = ? OR receveur_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
