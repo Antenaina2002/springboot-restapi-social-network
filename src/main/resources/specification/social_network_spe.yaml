@@ -113,8 +113,17 @@ paths:
             schema:
               $ref: '#/components/schemas/Publication'
       responses:
-        '201':
-          description: Créé avec succès
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publication'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Publication'
+        '405':
+          description: commande invalid
 
   /publication/{id}:
     get:
