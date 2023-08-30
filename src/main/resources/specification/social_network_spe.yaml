@@ -26,8 +26,17 @@ paths:
             schema:
               $ref: '#/components/schemas/Utilisateur'
       responses:
-        '201':
-          description: Créé avec succès
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utilisateur'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Utilisateur'
+        '405':
+          description: commande invalid
 
   /utilisateur/{id}:
     get:
