@@ -393,7 +393,7 @@ components:
       properties:
         id:
           type: integer
-        titre:
+        contenu:
           type: string
 
     Poste:
@@ -401,7 +401,11 @@ components:
       properties:
         id:
           type: integer
-        titre:
+        date_poste:
+          type: string
+        auteurId:
+          type: string
+        publicationId:
           type: string
 
     Commentaire:
@@ -409,7 +413,7 @@ components:
       properties:
         id:
           type: integer
-        contenu:
+        commentaire:
           type: string
 
     Message:
