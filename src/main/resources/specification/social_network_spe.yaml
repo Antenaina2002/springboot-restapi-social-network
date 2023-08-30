@@ -380,12 +380,19 @@ components:
           type: string
         genre:
           type: string
+          enum: [H, F]
         email:
           type: string
         telephone:
           type: string
         date_inscription:
           type: string
+          enum:
+            - 2023-08-30
+      required:
+        - id
+        - nom
+        - genre
 
 
     Publication:
@@ -395,6 +402,8 @@ components:
           type: integer
         contenu:
           type: string
+      required:
+        - id
 
     Poste:
       type: object
@@ -403,10 +412,16 @@ components:
           type: integer
         date_poste:
           type: string
+          enum:
+            - 2023-08-30
         auteurId:
           type: integer
         publicationId:
           type: integer
+      required:
+        - id
+        - auteurId
+        - publicationId
 
     Commentaire:
       type: object
@@ -417,10 +432,16 @@ components:
           type: string
         commentaire_date:
           type: string
+          enum:
+            - 2023-08-30
         commentateurId:
           type: integer
         publicationId:
           type: integer
+      required:
+        - id
+        - commentateurId
+        - publicationId
 
     Message:
       type: object
@@ -435,3 +456,9 @@ components:
           type: string
         message_date:
           type: string
+          enum:
+            - 2023-08-30
+      required:
+        - id
+        - envoyeur_id
+        - receveur_id
