@@ -16,7 +16,7 @@ public class MessageController {
     private final MessageService messageService;
 
     // Récupérer tous les messages entre deux utilisateurs
-    @GetMapping("/between")
+    @GetMapping
     public ResponseEntity<List<Messages>> displayMessages(@RequestParam int idSender, @RequestParam int idReceiver) {
         try {
             // Appelle le service pour récupérer les messages entre les deux utilisateurs
@@ -31,7 +31,7 @@ public class MessageController {
     }
 
     // Envoyer un nouveau message
-    @PostMapping("/new")
+    @PostMapping
     public ResponseEntity<Void> sendNewMessage(@RequestBody Messages message) {
         try {
             // Appelle le service pour envoyer un nouveau message
@@ -46,7 +46,7 @@ public class MessageController {
     }
 
     // Supprimer un message par son ID
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMessage(@PathVariable int id) {
         try {
             // Appelle le service pour supprimer un message

@@ -376,6 +376,17 @@ components:
           type: integer
         nom:
           type: string
+        prenom:
+          type: string
+        genre:
+          type: string
+        email:
+          type: string
+        telephone:
+          type: string
+        date_inscription:
+          type: string
+
 
     Publication:
       type: object
