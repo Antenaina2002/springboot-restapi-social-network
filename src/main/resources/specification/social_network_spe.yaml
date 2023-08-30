@@ -404,9 +404,9 @@ components:
         date_poste:
           type: string
         auteurId:
-          type: string
+          type: integer
         publicationId:
-          type: string
+          type: integer
 
     Commentaire:
       type: object
