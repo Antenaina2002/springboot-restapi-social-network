@@ -52,9 +52,9 @@ public class PublicationService {
     }
 
     // Récupérer toutes les publications
-    public List<Publication> getAllPublications() throws SQLException {
+    public static List<Publication> getAllPublications() throws SQLException {
         try {
-            return publicationRepository.findAll();
+            return PublicationRepository.findAll();
         } catch (SQLException e) {
             throw new SQLException("Erreur lors de la récupération des publications", e);
         }

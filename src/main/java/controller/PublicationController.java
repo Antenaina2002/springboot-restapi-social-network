@@ -42,7 +42,8 @@ public class PublicationController {
     public ResponseEntity<Publication> getPublicationById(@PathVariable int id) {
         try {
             // Appel à la méthode du service pour obtenir une publication par son ID.
-            Publication publication = publicationService.getPublicationById(id).orElse(null);
+            Publication publication;
+            publication = publicationService.getPublicationById(id).orElse(null);
             // Si la publication existe, retourne la publication avec un statut HTTP 200 (OK).
             // Sinon, retourne un statut HTTP 404 (Not Found).
             if (publication != null) {

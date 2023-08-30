@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Repository
 public class PublicationRepository {
-    private final DataSource dataSource;
+    private static DataSource dataSource = null;
 
     public PublicationRepository(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -52,7 +52,7 @@ public class PublicationRepository {
     }
 
     // Méthode pour trouver toutes les publications
-    public List<Publication> findAll() throws SQLException {
+    public static List<Publication> findAll() throws SQLException {
         List<Publication> publications = new ArrayList<>();
         String sql = "SELECT * FROM publication";
         try (Connection connection = dataSource.getConnection();
@@ -81,7 +81,7 @@ public class PublicationRepository {
     }
 
     // Méthode pour extraire une publication à partir du ResultSet
-    private Publication extractPublicationFromResultSet(ResultSet resultSet) throws SQLException {
+    private static Publication extractPublicationFromResultSet(ResultSet resultSet) throws SQLException {
         return new Publication(
                 resultSet.getInt("id_publication"),
                 resultSet.getString("contenu")
