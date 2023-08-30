@@ -4,7 +4,7 @@ info:
   description: Spécification de l'API pour gérer les utilisateurs, les publications, les postes, les commentaires et les messages.
   version: 1.0.0
 servers:
-  - url: "http://STD22073.com"
+  - url: "https://STD22073.com"
 paths:
   /utilisateur:
     get:
