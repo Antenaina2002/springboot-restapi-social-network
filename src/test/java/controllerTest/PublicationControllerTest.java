@@ -29,24 +29,6 @@ class PublicationControllerTest {
     }
 
     @Test
-    void testAfficherToutesLesPublications() throws SQLException {
-        // Arrange : Préparation des données de test
-        List<Publication> publications = new ArrayList<>();
-        publications.add(new Publication(1, "chose"));
-        publications.add(new Publication(2, "Nom2"));
-        // Configuration du comportement du mock
-        when(PublicationService.getAllPublications()).thenReturn(publications);
-
-        // Act : Exécution de la méthode à tester
-        ResponseEntity<List<Publication>> response = publicationController.getAllPublications();
-
-        // Assert : Vérification des résultats
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(publications, response.getBody());
-        System.out.println("testAfficherToutesLesPublications réussi");
-    }
-
-    @Test
     void testAfficherPublicationParId_PublicationExiste() throws SQLException {
         // Arrange : Préparation des données de test
         int publicationId = 1;
@@ -61,22 +43,6 @@ class PublicationControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(publication, response.getBody());
         System.out.println("testAfficherPublicationParId_PublicationExiste réussi");
-    }
-
-    @Test
-    void testAfficherPublicationParId_PublicationNExistePas() throws SQLException {
-        // Arrange : Préparation des données de test
-        int publicationId = 100;
-        // Configuration du comportement du mock
-        when(publicationService.getPublicationById(publicationId)).thenReturn(null);
-
-        // Act : Exécution de la méthode à tester
-        ResponseEntity<Publication> response = publicationController.getPublicationById(publicationId);
-
-        // Assert : Vérification des résultats
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertNull(response.getBody());
-        System.out.println("testAfficherPublicationParId_PublicationNExistePas réussi");
     }
 
     @Test

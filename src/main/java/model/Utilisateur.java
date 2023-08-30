@@ -26,4 +26,7 @@ public class Utilisateur {
         this.telephone = telephone;
         this.date_inscription = date_inscription;
     }
+    public int getId_utilisateur() {
+        return id_utilisateur;
+    }
 }
