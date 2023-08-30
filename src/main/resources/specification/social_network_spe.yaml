@@ -199,8 +199,17 @@ paths:
             schema:
               $ref: '#/components/schemas/Poste'
       responses:
-        '201':
-          description: Créé avec succès
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Poste'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Poste'
+        '405':
+          description: commande invalid
   /poste/{id}:
     get:
       tags:
@@ -276,8 +285,17 @@ paths:
             schema:
               $ref: '#/components/schemas/Commentaire'
       responses:
-        '201':
-          description: Créé avec succès
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Commentaire'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Commentaire'
+        '405':
+          description: commande invalid
 
   /commentaire/{id}:
     get:
@@ -365,8 +383,17 @@ paths:
             schema:
               $ref: '#/components/schemas/Message'
       responses:
-        '201':
-          description: Créé avec succès
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: commande invalid
 
   /message/{id}:
     delete:
