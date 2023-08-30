@@ -427,5 +427,11 @@ components:
       properties:
         id:
           type: integer
-        texte:
+        envoyeur_id:
+          type: integer
+        receveur_id:
+          type: integer
+        message_text:
+          type: string
+        message_date:
           type: string

@@ -14,12 +14,10 @@ CREATE TABLE utilisateur(
 
 CREATE TABLE messages (
     id_message SERIAL primary key,
-    envoyeur_id INT,
-    receveur_id INT,
+    envoyeur_id INT REFERENCES utilisateur(id_utilisateur),
+    receveur_id INT REFERENCES utilisateur(id_utilisateur),
     message_text TEXT,
     message_date TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY (sender_id) REFERENCES users(id),
-    FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 
 
