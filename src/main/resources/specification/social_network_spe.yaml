@@ -415,6 +415,12 @@ components:
           type: integer
         commentaire:
           type: string
+        commentaire_date:
+          type: string
+        commentateurId:
+          type: integer
+        publicationId:
+          type: integer
 
     Message:
       type: object
