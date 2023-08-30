@@ -8,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -34,17 +32,15 @@ class UtilisateurRepositoryTest {
 
     @Test
     void testInsert() throws SQLException {
-        // Mock de PreparedStatement et exécution simulée
         PreparedStatement preparedStatement = mock(PreparedStatement.class);
         when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
 
         Utilisateur utilisateur = new Utilisateur(1, "Nom", "Prenom", 'M', "email@test.com", "1234567890", LocalDateTime.now());
 
-        // Exécution de la méthode à tester
         utilisateurRepository.insert(utilisateur);
 
-        // Vérification des appels et interactions
         verify(preparedStatement).executeUpdate();
+        System.out.println("testInsert réussi");
     }
 
     @Test
@@ -54,11 +50,10 @@ class UtilisateurRepositoryTest {
         PreparedStatement preparedStatement = mock(PreparedStatement.class);
         when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
 
-        // Exécution de la méthode à tester
         utilisateurRepository.updateById(userId, utilisateur);
 
-        // Vérification des appels et interactions
         verify(preparedStatement).executeUpdate();
+        System.out.println("testUpdateById réussi");
     }
 
     @Test
@@ -70,11 +65,10 @@ class UtilisateurRepositoryTest {
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(resultSet.next()).thenReturn(false); // Simuler l'absence de résultat
 
-        // Exécution de la méthode à tester
         Optional<Utilisateur> utilisateur = utilisateurRepository.findById(userId);
 
-        // Vérification des résultats
         assertFalse(utilisateur.isPresent());
+        System.out.println("testFindById_UserNotExists réussi");
     }
 
     @Test
@@ -83,12 +77,9 @@ class UtilisateurRepositoryTest {
         PreparedStatement preparedStatement = mock(PreparedStatement.class);
         when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
 
-        // Exécution de la méthode à tester
         utilisateurRepository.deleteById(userId);
 
-        // Vérification des appels et interactions
         verify(preparedStatement).executeUpdate();
+        System.out.println("testDeleteById réussi");
     }
-
-    // Ajoutez d'autres tests pour les autres méthodes du repository UtilisateurRepository
 }
